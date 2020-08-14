@@ -9,6 +9,14 @@
 - Use a loop to manage optional parameters [\#1](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/issues/1)
 - use loop for optional parameters [\#3](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/pull/3) ([schurzi](https://github.com/schurzi))
 
+**Closed issues:**
+
+- mixing of camel case and underscore variable names [\#2](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/issues/2)
+
+**Merged pull requests:**
+
+- change all variables to camel case [\#4](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/pull/4) ([schurzi](https://github.com/schurzi))
+
 ## [0.0.1](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/tree/0.0.1) (2020-08-14)
 
 [Full Changelog](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/compare/0.0.0...0.0.1)
