@@ -40,13 +40,13 @@ description:
    - L(API Documentation,https://docs.atlas.mongodb.com/reference/api/database-users/)
 author: "Martin Schurz (@schurzi)"
 options:
-  api_username:
+  apiUsername:
     description:
       - The username for use in authentication with the Atlas API.
       - Can use API users and tokens (public key is username)
     type: str
     required: True
-  api_password:
+  apiPassword:
     description:
       - The password for use in authentication with the Atlas API.
       - Can use API users and tokens (private key is password)
@@ -58,7 +58,7 @@ options:
     choices: [ "present", "absent" ]
     default: present
     type: str
-  groupid:
+  groupId:
     description:
       - Unique identifier for the Atlas project.
     type: str
@@ -100,9 +100,9 @@ options:
 EXAMPLES = """
     - name: test user
       atlas_user:
-        api_username: "API_user"
-        api_password: "API_passwort_or_token"
-        groupid: "GROUP_ID"
+        apiUsername: "API_user"
+        apiPassword: "API_passwort_or_token"
+        groupId: "GROUP_ID"
         username: my_app_user
         password: SuperSecret!
         roles:
@@ -125,9 +125,9 @@ def main():
     # add our own arguments
     argument_spec = dict(
         state=dict(default="present", choices=["absent", "present"]),
-        api_username=dict(required=True),
-        api_password=dict(required=True, no_log=True),
-        groupid=dict(required=True),
+        apiUsername=dict(required=True),
+        apiPassword=dict(required=True, no_log=True),
+        groupId=dict(required=True),
         databaseName=dict(default="admin", choices=["admin", "$external"]),
         username=dict(required=True),
         password=dict(required=True, no_log=True),
@@ -157,7 +157,7 @@ def main():
             module=module,
             path="/databaseUsers",
             object_name="username",
-            groupid=module.params["groupid"],
+            groupId=module.params["groupId"],
             data=data,
         )
     except Exception as e:
