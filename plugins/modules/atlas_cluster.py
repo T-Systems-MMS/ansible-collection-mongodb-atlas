@@ -197,24 +197,17 @@ def main():
     }
 
     # handle optional options
-    if "mongoDBMajorVersion" in module.params:
-        data.update(
-            {"mongoDBMajorVersion": module.params["mongoDBMajorVersion"]}
-        )
+    optional_vars = [
+        "mongoDBMajorVersion",
+        "autoScaling",
+        "diskSizeGB",
+        "providerBackupEnabled",
+        "pitEnabled",
+    ]
 
-    if "autoScaling" in module.params:
-        data.update({"autoScaling": module.params["autoScaling"]})
-
-    if "diskSizeGB" in module.params:
-        data.update({"diskSizeGB": module.params["diskSizeGB"]})
-
-    if "providerBackupEnabled" in module.params:
-        data.update(
-            {"providerBackupEnabled": module.params["providerBackupEnabled"]}
-        )
-
-    if "pitEnabled" in module.params:
-        data.update({"pitEnabled": module.params["pitEnabled"]})
+    for var in optional_vars:
+        if var in module.params:
+            data.update({var: module.params[var]})
 
     try:
         atlas = AtlasAPIObject(
