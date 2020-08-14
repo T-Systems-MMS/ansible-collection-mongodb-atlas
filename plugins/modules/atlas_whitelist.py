@@ -36,13 +36,13 @@ description:
    - L(API Documentation,https://docs.atlas.mongodb.com/reference/api/whitelist/)
 author: "Martin Schurz (@schurzi)"
 options:
-  api_username:
+  apiUsername:
     description:
       - The username for use in authentication with the Atlas API.
       - Can use API users and tokens (public key is username)
     type: str
     required: True
-  api_password:
+  apiPassword:
     description:
       - The password for use in authentication with the Atlas API.
       - Can use API users and tokens (private key is password)
@@ -54,7 +54,7 @@ options:
     choices: [ "present", "absent" ]
     default: present
     type: str
-  groupid:
+  groupId:
     description:
       - Unique identifier for the Atlas project.
     type: str
@@ -74,9 +74,9 @@ options:
 EXAMPLES = """
     - name: test whitelist
       atlas_whitelist:
-        api_username: "API_user"
-        api_password: "API_passwort_or_token"
-        groupid: "GROUP_ID"
+        apiUsername: "API_user"
+        apiPassword: "API_passwort_or_token"
+        groupId: "GROUP_ID"
         cidrBlock: "192.168.0.0/24"
         comment: "test"
 """
@@ -94,9 +94,9 @@ def main():
     # add our own arguments
     argument_spec = dict(
         state=dict(default="present", choices=["absent", "present"]),
-        api_username=dict(required=True),
-        api_password=dict(required=True, no_log=True),
-        groupid=dict(required=True),
+        apiUsername=dict(required=True),
+        apiPassword=dict(required=True, no_log=True),
+        groupId=dict(required=True),
         cidrBlock=dict(required=True),
         comment=dict(default="created by Ansible"),
     )
@@ -116,7 +116,7 @@ def main():
             module=module,
             path="/whitelist",
             object_name="cidrBlock",
-            groupid=module.params["groupid"],
+            groupId=module.params["groupId"],
             data=data,
             data_is_array=True,
         )

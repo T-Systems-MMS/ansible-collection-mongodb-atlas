@@ -37,13 +37,13 @@ description:
    - L(API Documentation,https://docs.atlas.mongodb.com/reference/api/clusters/)
 author: "Martin Schurz (@schurzi)"
 options:
-  api_username:
+  apiUsername:
     description:
       - The username for use in authentication with the Atlas API.
       - Can use API users and tokens (public key is username)
     type: str
     required: True
-  api_password:
+  apiPassword:
     description:
       - The password for use in authentication with the Atlas API.
       - Can use API users and tokens (private key is password)
@@ -55,7 +55,7 @@ options:
     choices: [ "present", "absent" ]
     default: present
     type: str
-  groupid:
+  groupId:
     description:
       - Unique identifier for the Atlas project.
     type: str
@@ -132,9 +132,9 @@ options:
 EXAMPLES = """
     - name: test cluster
       atlas_cluster:
-        api_username: "API_user"
-        api_password: "API_passwort_or_token"
-        groupid: "GROUP_ID"
+        apiUsername: "API_user"
+        apiPassword: "API_passwort_or_token"
+        groupId: "GROUP_ID"
         name: "testcluster"
         mongoDBMajorVersion: "4.0"
         clusterType: "REPLICASET"
@@ -158,9 +158,9 @@ def main():
     # add our own arguments
     argument_spec = dict(
         state=dict(default="present", choices=["absent", "present"]),
-        api_username=dict(required=True),
-        api_password=dict(required=True, no_log=True),
-        groupid=dict(required=True),
+        apiUsername=dict(required=True),
+        apiPassword=dict(required=True, no_log=True),
+        groupId=dict(required=True),
         name=dict(required=True),
         mongoDBMajorVersion=dict(choices=["3.6", "4.0", "4.2", "4.4"]),
         clusterType=dict(
@@ -214,7 +214,7 @@ def main():
             module=module,
             path="/clusters",
             object_name="name",
-            groupid=module.params["groupid"],
+            groupId=module.params["groupId"],
             data=data,
         )
     except Exception as e:
