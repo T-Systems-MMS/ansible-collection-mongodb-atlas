@@ -52,7 +52,7 @@ options:
   mongoDBMajorVersion:
     description:
       - Version of the cluster to deploy.
-      - Atlas always deploys the cluster with the latest stable release of the specified version. 
+      - Atlas always deploys the cluster with the latest stable release of the specified version.
       - You can upgrade to a newer version of MongoDB when you modify a cluster.
     choices: [ "3.6", "4.0", "4.2", "4.4" ]
     type: str
@@ -64,13 +64,13 @@ options:
     type: str
   replicationFactor:
     description:
-      - Number of replica set members. Each member keeps a copy of your databases, providing high availability and data redundancy. 
+      - Number of replica set members. Each member keeps a copy of your databases, providing high availability and data redundancy.
     choices: [ 3, 5, 7 ]
     default: 3
     type: int
   autoScaling:
     description:
-      - Configure your cluster to automatically scale its storage and cluster tier. 
+      - Configure your cluster to automatically scale its storage and cluster tier.
       - ' - C(diskGBEnabled) (bool): Specifies whether disk auto-scaling is enabled. The default is true.
     required: False
     type: list
@@ -86,7 +86,7 @@ options:
     type: list
   diskSizeGB:
     description:
-      - Capacity, in gigabytes, of the host’s root volume. Increase this number to add capacity, 
+      - Capacity, in gigabytes, of the host’s root volume. Increase this number to add capacity,
         up to a maximum possible value of 4096 (i.e., 4 TB). This value must be a positive integer.
     type: int
   providerBackupEnabled:
@@ -103,7 +103,7 @@ EXAMPLES = """
     - name: test cluster
       atlas_cluster:
         api_username: "API_user"
-        api_password: "API_passwort_or_token" 
+        api_password: "API_passwort_or_token"
         groupid: "GROUP_ID"
         name: "testcluster"
         mongoDBMajorVersion: "4.0"
@@ -116,7 +116,6 @@ EXAMPLES = """
 """
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible.module_utils.urls import url_argument_spec
 from ansible_collections.t_systems_mms.mongodb_atlas.plugins.module_utils.atlas import (
     AtlasAPIObject,
 )
@@ -127,24 +126,30 @@ from ansible_collections.t_systems_mms.mongodb_atlas.plugins.module_utils.atlas 
 #
 def main():
     # add our own arguments
-    argument_spec= dict(
+    argument_spec = dict(
         state=dict(default="present", choices=["absent", "present"]),
         api_username=dict(required=True),
-        api_password=dict(required=True,no_log=True),
+        api_password=dict(required=True, no_log=True),
         url_password=dict(no_log=True),
         groupid=dict(required=True),
         name=dict(required=True),
-        mongoDBMajorVersion=dict(choices=[ "3.6", "4.0", "4.2", "4.4" ]),
-        clusterType=dict(default="REPLICASET", choices=[ "REPLICASET", "SHARDED" ]),
-        replicationFactor=dict(default=3, type="int", choices=[ 3, 5, 7 ]),
-        autoScaling=dict(type="dict", options= dict(
-          diskGBEnabled=dict(type="bool"),
-        )),
-        providerSettings=dict(type="dict", required=True, options= dict(
-          providerName=dict(required=True),
-          regionName=dict(required=True),
-          instanceSizeName=dict(required=True),
-        )),
+        mongoDBMajorVersion=dict(choices=["3.6", "4.0", "4.2", "4.4"]),
+        clusterType=dict(
+            default="REPLICASET", choices=["REPLICASET", "SHARDED"]
+        ),
+        replicationFactor=dict(default=3, type="int", choices=[3, 5, 7]),
+        autoScaling=dict(
+            type="dict", options=dict(diskGBEnabled=dict(type="bool"),)
+        ),
+        providerSettings=dict(
+            type="dict",
+            required=True,
+            options=dict(
+                providerName=dict(required=True),
+                regionName=dict(required=True),
+                instanceSizeName=dict(required=True),
+            ),
+        ),
         diskSizeGB=dict(type="int"),
         providerBackupEnabled=dict(type="bool"),
         pitEnabled=dict(type="bool"),
@@ -155,7 +160,6 @@ def main():
         argument_spec=argument_spec, supports_check_mode=True
     )
 
-
     data = {
         "name": module.params["name"],
         "clusterType": module.params["clusterType"],
@@ -165,26 +169,31 @@ def main():
 
     # handle optional options
     if "mongoDBMajorVersion" in module.params:
-      data.update({"mongoDBMajorVersion": module.params["mongoDBMajorVersion"]})
+        data.update(
+            {"mongoDBMajorVersion": module.params["mongoDBMajorVersion"]}
+        )
 
     if "autoScaling" in module.params:
-      data.update({"autoScaling": module.params["autoScaling"]})
+        data.update({"autoScaling": module.params["autoScaling"]})
 
     if "diskSizeGB" in module.params:
-      data.update({"diskSizeGB": module.params["diskSizeGB"]})
+        data.update({"diskSizeGB": module.params["diskSizeGB"]})
 
     if "providerBackupEnabled" in module.params:
-      data.update({"providerBackupEnabled": module.params["providerBackupEnabled"]})
+        data.update(
+            {"providerBackupEnabled": module.params["providerBackupEnabled"]}
+        )
 
     if "pitEnabled" in module.params:
-      data.update({"pitEnabled": module.params["pitEnabled"]})
+        data.update({"pitEnabled": module.params["pitEnabled"]})
 
     try:
         atlas = AtlasAPIObject(
-            module=module, path="/clusters", 
+            module=module,
+            path="/clusters",
             object_name="name",
             groupid=module.params["groupid"],
-            data=data, 
+            data=data,
         )
     except Exception as e:
         module.fail_json(
@@ -193,9 +202,7 @@ def main():
 
     changed, diff = atlas.update(module.params["state"])
     module.exit_json(
-        changed=changed,
-        data=atlas.data,
-        diff=diff,
+        changed=changed, data=atlas.data, diff=diff,
     )
 
 

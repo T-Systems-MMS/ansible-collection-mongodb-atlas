@@ -45,7 +45,7 @@ options:
     required: True
   cidrBlock:
     description:
-      - Whitelist entry in Classless Inter-Domain Routing (CIDR) notation. 
+      - Whitelist entry in Classless Inter-Domain Routing (CIDR) notation.
     type: str
     required: True
   comment:
@@ -59,14 +59,13 @@ EXAMPLES = """
     - name: test whitelist
       atlas_whitelist:
         api_username: "API_user"
-        api_password: "API_passwort_or_token" 
+        api_password: "API_passwort_or_token"
         groupid: "GROUP_ID"
         cidrBlock: "192.168.0.0/24"
         comment: "test"
 """
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible.module_utils.urls import url_argument_spec
 from ansible_collections.t_systems_mms.mongodb_atlas.plugins.module_utils.atlas import (
     AtlasAPIObject,
 )
@@ -77,10 +76,10 @@ from ansible_collections.t_systems_mms.mongodb_atlas.plugins.module_utils.atlas 
 #
 def main():
     # add our own arguments
-    argument_spec= dict(
+    argument_spec = dict(
         state=dict(default="present", choices=["absent", "present"]),
         api_username=dict(required=True),
-        api_password=dict(required=True,no_log=True),
+        api_password=dict(required=True, no_log=True),
         url_password=dict(no_log=True),
         groupid=dict(required=True),
         cidrBlock=dict(required=True),
@@ -99,10 +98,11 @@ def main():
 
     try:
         atlas = AtlasAPIObject(
-            module=module, path="/whitelist", 
+            module=module,
+            path="/whitelist",
             object_name="cidrBlock",
             groupid=module.params["groupid"],
-            data=data, 
+            data=data,
             data_is_array=True,
         )
     except Exception as e:
@@ -112,9 +112,7 @@ def main():
 
     changed, diff = atlas.update(module.params["state"])
     module.exit_json(
-        changed=changed,
-        data=atlas.data,
-        diff=diff,
+        changed=changed, data=atlas.data, diff=diff,
     )
 
 

@@ -16,10 +16,10 @@ DOCUMENTATION = """
 module: atlas_user
 short_description: Manage database users in Atlas
 description:
-   - The atlas_users module lets you create, modify and delete the database users in your cluster. 
-   - Each user has a set of roles that provide access to the project’s databases. 
+   - The atlas_users module lets you create, modify and delete the database users in your cluster.
+   - Each user has a set of roles that provide access to the project’s databases.
    - A user’s roles apply to all the clusters in the project:
-   - if two clusters have a products database and a user has a role granting read access on the products database, 
+   - if two clusters have a products database and a user has a role granting read access on the products database,
    - the user has that access on both clusters.
    - API Documentation: U(https://docs.atlas.mongodb.com/reference/api/database-users/)
 author: Martin Schurz
@@ -65,9 +65,9 @@ options:
     type: str
   roles:
     description:
-      - Array of this user’s roles and the databases / collections on which the roles apply. 
+      - Array of this user’s roles and the databases / collections on which the roles apply.
       - A role must include folliwing elements:
-      - ' - C(databaseName) (string): Database on which the user has the specified role. 
+      - ' - C(databaseName) (string): Database on which the user has the specified role.
             A role on the admin database can include privileges that apply to the other databases.
       - ' - C(roleName) (string): Name of the role. This value can either be a built-in role or a custom role.
     required: true
@@ -78,7 +78,7 @@ EXAMPLES = """
     - name: test user
       atlas_user:
         api_username: "API_user"
-        api_password: "API_passwort_or_token" 
+        api_password: "API_passwort_or_token"
         groupid: "GROUP_ID"
         username: my_app_user
         password: SuperSecret!
@@ -90,7 +90,6 @@ EXAMPLES = """
 """
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible.module_utils.urls import url_argument_spec
 from ansible_collections.t_systems_mms.mongodb_atlas.plugins.module_utils.atlas import (
     AtlasAPIObject,
 )
@@ -101,19 +100,22 @@ from ansible_collections.t_systems_mms.mongodb_atlas.plugins.module_utils.atlas 
 #
 def main():
     # add our own arguments
-    argument_spec= dict(
+    argument_spec = dict(
         state=dict(default="present", choices=["absent", "present"]),
         api_username=dict(required=True),
-        api_password=dict(required=True,no_log=True),
+        api_password=dict(required=True, no_log=True),
         url_password=dict(no_log=True),
         groupid=dict(required=True),
         databaseName=dict(default="admin", choices=["admin", "$external"]),
         username=dict(required=True),
-        password=dict(required=True,no_log=True),
-        roles=dict(required=True, type="list", options= dict(
-          databaseName=dict(required=True),
-          roleName=dict(required=True),
-        )),
+        password=dict(required=True, no_log=True),
+        roles=dict(
+            required=True,
+            type="list",
+            options=dict(
+                databaseName=dict(required=True), roleName=dict(required=True),
+            ),
+        ),
     )
 
     # Define the main module
@@ -125,15 +127,16 @@ def main():
         "databaseName": module.params["databaseName"],
         "username": module.params["username"],
         "password": module.params["password"],
-        "roles":module.params["roles"],
+        "roles": module.params["roles"],
     }
 
     try:
         atlas = AtlasAPIObject(
-            module=module, path="/databaseUsers", 
+            module=module,
+            path="/databaseUsers",
             object_name="username",
             groupid=module.params["groupid"],
-            data=data, 
+            data=data,
         )
     except Exception as e:
         module.fail_json(
@@ -142,9 +145,7 @@ def main():
 
     changed, diff = atlas.update(module.params["state"])
     module.exit_json(
-        changed=changed,
-        data=atlas.data,
-        diff=diff,
+        changed=changed, data=atlas.data, diff=diff,
     )
 
 

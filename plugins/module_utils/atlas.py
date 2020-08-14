@@ -8,25 +8,29 @@ import json
 from collections import defaultdict
 
 from ansible.module_utils.urls import fetch_url
-from ansible.module_utils.six import iteritems
 
 try:
     from urllib import quote
 except ImportError:
     # noinspection PyCompatibility, PyUnresolvedReferences
-    from urllib.parse import quote  # pylint: disable=locally-disabled, import-error, no-name-in-module
+    from urllib.parse import (
+        quote,
+    )  # pylint: disable=locally-disabled, import-error, no-name-in-module
+
 
 class AtlasAPIObject:
     module = None
 
-    def __init__(self, module, object_name, groupid, path, data, data_is_array=False):
+    def __init__(
+        self, module, object_name, groupid, path, data, data_is_array=False
+    ):
         self.module = module
         self.path = path
         self.data = data
         self.groupid = groupid
         self.object_name = object_name
         self.data_is_array = data_is_array
-        
+
         self.module.params["url_username"] = self.module.params["api_username"]
         self.module.params["url_password"] = self.module.params["api_password"]
 
@@ -38,8 +42,12 @@ class AtlasAPIObject:
 
         if self.data_is_array and data != "":
             data = "[" + data + "]"
-            
-        url = "https://cloud.mongodb.com/api/atlas/v1.0/groups/" + self.groupid + path
+
+        url = (
+            "https://cloud.mongodb.com/api/atlas/v1.0/groups/"
+            + self.groupid
+            + path
+        )
         rsp, info = fetch_url(
             module=self.module,
             url=url,
@@ -65,11 +73,14 @@ class AtlasAPIObject:
         return {"code": info["status"], "data": content, "error": error}
 
     def exists(self):
-        additional_path=""
-        if (self.path == "/databaseUsers"):
-            additional_path="/admin"
+        additional_path = ""
+        if self.path == "/databaseUsers":
+            additional_path = "/admin"
         ret = self.call_url(
-            path=self.path + additional_path + "/" + quote(self.data[self.object_name],"")
+            path=self.path
+            + additional_path
+            + "/"
+            + quote(self.data[self.object_name], "")
         )
         if ret["code"] == 200:
             return True
@@ -77,45 +88,51 @@ class AtlasAPIObject:
 
     def create(self):
         ret = self.call_url(
-            path=self.path, 
-            data=self.module.jsonify(self.data),
-            method="POST",
+            path=self.path, data=self.module.jsonify(self.data), method="POST",
         )
         return ret
 
     def delete(self):
-        additional_path=""
-        if (self.path == "/databaseUsers"):
-            additional_path="/admin"
+        additional_path = ""
+        if self.path == "/databaseUsers":
+            additional_path = "/admin"
         ret = self.call_url(
-            path=self.path + additional_path + "/" + quote(self.data[self.object_name],""),
+            path=self.path
+            + additional_path
+            + "/"
+            + quote(self.data[self.object_name], ""),
             method="DELETE",
         )
         return ret
 
     def modify(self):
-        additional_path=""
-        if (self.path == "/databaseUsers"):
-            additional_path="/admin"
+        additional_path = ""
+        if self.path == "/databaseUsers":
+            additional_path = "/admin"
         ret = self.call_url(
-            path=self.path + additional_path + "/" + quote(self.data[self.object_name],""),
+            path=self.path
+            + additional_path
+            + "/"
+            + quote(self.data[self.object_name], ""),
             data=self.module.jsonify(self.data),
             method="PATCH",
         )
         return ret
 
     def diff(self):
-        additional_path=""
-        if (self.path == "/databaseUsers"):
-            additional_path="/admin"
+        additional_path = ""
+        if self.path == "/databaseUsers":
+            additional_path = "/admin"
         ret = self.call_url(
-            path=self.path + additional_path + "/" + quote(self.data[self.object_name],""),
+            path=self.path
+            + additional_path
+            + "/"
+            + quote(self.data[self.object_name], ""),
             method="GET",
         )
 
         data_from_atlas = json.loads(self.module.jsonify(ret["data"]))
         data_from_task = json.loads(self.module.jsonify(self.data))
-
 
         diff = defaultdict(dict)
         for key, value in data_from_atlas.items():
