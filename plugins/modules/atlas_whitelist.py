@@ -1,5 +1,21 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+#
+# Copyright (c) 2020 T-Systems MMS
+# GNU General Public License v3.0+ (see COPYING or https://www.gnu.org/licenses/gpl-3.0.txt)
+#
+# This module is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This software is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this software.  If not, see <http://www.gnu.org/licenses/>.
 
 from __future__ import absolute_import, division, print_function
 
@@ -16,9 +32,9 @@ DOCUMENTATION = """
 module: atlas_whitelist
 short_description: Manage IP whitelists in Atlas
 description:
-   - The whitelist module manages a Atlas project’s IP whitelist.
-   - API Documentation: U(https://docs.atlas.mongodb.com/reference/api/whitelist/)
-author: Martin Schurz
+   - The whitelist module manages a Atlas project's IP whitelist.
+   - L(API Documentation,https://docs.atlas.mongodb.com/reference/api/whitelist/)
+author: "Martin Schurz (@schurzi)"
 options:
   api_username:
     description:
@@ -80,7 +96,6 @@ def main():
         state=dict(default="present", choices=["absent", "present"]),
         api_username=dict(required=True),
         api_password=dict(required=True, no_log=True),
-        url_password=dict(no_log=True),
         groupid=dict(required=True),
         cidrBlock=dict(required=True),
         comment=dict(default="created by Ansible"),

@@ -1,5 +1,21 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+#
+# Copyright (c) 2020 T-Systems MMS
+# GNU General Public License v3.0+ (see COPYING or https://www.gnu.org/licenses/gpl-3.0.txt)
+#
+# This module is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This software is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this software.  If not, see <http://www.gnu.org/licenses/>.
 
 from __future__ import absolute_import, division, print_function
 
@@ -18,8 +34,8 @@ short_description: Manage database clusters in Atlas
 description:
    - The clusters module provides access to your cluster configurations.
    - The module lets you create, edit and delete clusters.
-   - API Documentation: U(https://docs.atlas.mongodb.com/reference/api/clusters/)
-author: Martin Schurz
+   - L(API Documentation,https://docs.atlas.mongodb.com/reference/api/clusters/)
+author: "Martin Schurz (@schurzi)"
 options:
   api_username:
     description:
@@ -71,22 +87,36 @@ options:
   autoScaling:
     description:
       - Configure your cluster to automatically scale its storage and cluster tier.
-      - ' - C(diskGBEnabled) (bool): Specifies whether disk auto-scaling is enabled. The default is true.
+    suboptions:
+      diskGBEnabled:
+        type: bool
+        description:
+          - Specifies whether disk auto-scaling is enabled. The default is true.
     required: False
-    type: list
+    type: dict
   providerSettings:
     description:
       - Configuration for the provisioned servers on which MongoDB runs.
       - The available options are specific to the cloud service provider.
-      - ' - C(providerName) (string): Cloud service provider on which the servers are provisioned.
-      - ' - C(regionName) (string): Physical location of your MongoDB cluster.
-      - ' - C(instanceSizeName) (string): Atlas provides different cluster tiers, each with a default storage capacity and RAM size.
-            The cluster you select is used for all the data-bearing servers in your cluster tier.
+    suboptions:
+      providerName:
+        type: str
+        description:
+          - Cloud service provider on which the servers are provisioned.
+      regionName:
+        type: str
+        description:
+          - Physical location of your MongoDB cluster.
+      instanceSizeName:
+        type: str
+        description:
+          - Atlas provides different cluster tiers, each with a default storage capacity and RAM size.
+          - The cluster you select is used for all the data-bearing servers in your cluster tier.
     required: True
-    type: list
+    type: dict
   diskSizeGB:
     description:
-      - Capacity, in gigabytes, of the host’s root volume. Increase this number to add capacity,
+      - Capacity, in gigabytes, of the host's root volume. Increase this number to add capacity,
         up to a maximum possible value of 4096 (i.e., 4 TB). This value must be a positive integer.
     type: int
   providerBackupEnabled:
@@ -130,7 +160,6 @@ def main():
         state=dict(default="present", choices=["absent", "present"]),
         api_username=dict(required=True),
         api_password=dict(required=True, no_log=True),
-        url_password=dict(no_log=True),
         groupid=dict(required=True),
         name=dict(required=True),
         mongoDBMajorVersion=dict(choices=["3.6", "4.0", "4.2", "4.4"]),
