@@ -98,7 +98,7 @@ options:
     description:
       - Configuration for the provisioned servers on which MongoDB runs.
       - The available options are specific to the cloud service provider.
-    suboptions:
+    contains:
       providerName:
         type: str
         description:
@@ -113,7 +113,7 @@ options:
           - Atlas provides different cluster tiers, each with a default storage capacity and RAM size.
           - The cluster you select is used for all the data-bearing servers in your cluster tier.
     required: True
-    type: dict
+    type: complex
   diskSizeGB:
     description:
       - Capacity, in gigabytes, of the host's root volume. Increase this number to add capacity,
@@ -168,7 +168,10 @@ def main():
         ),
         replicationFactor=dict(default=3, type="int", choices=[3, 5, 7]),
         autoScaling=dict(
-            type="dict", options=dict(diskGBEnabled=dict(type="bool"),)
+            type="dict",
+            options=dict(
+                diskGBEnabled=dict(type="bool"),
+            )
         ),
         providerSettings=dict(
             type="dict",
@@ -224,7 +227,9 @@ def main():
 
     changed, diff = atlas.update(module.params["state"])
     module.exit_json(
-        changed=changed, data=atlas.data, diff=diff,
+        changed=changed,
+        data=atlas.data,
+        diff=diff,
     )
 
 

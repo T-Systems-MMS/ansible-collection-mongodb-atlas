@@ -83,7 +83,7 @@ options:
     description:
       - Array of this user's roles and the databases / collections on which the roles apply.
       - A role must include folliwing elements
-    suboptions:
+    contains:
       databaseName:
         type: str
         description:
@@ -94,7 +94,7 @@ options:
         description:
           - Name of the role. This value can either be a built-in role or a custom role.
     required: true
-    type: list
+    type: complex
 """
 
 EXAMPLES = """
