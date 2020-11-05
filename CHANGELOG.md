@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.1.1](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/tree/0.1.1) (2020-11-05)
+
+[Full Changelog](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/compare/0.1.0...0.1.1)
+
+**Closed issues:**
+
+- mixing of camel case and underscore variable names [\#2](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/issues/2)
+
+**Merged pull requests:**
+
+- add build\_ignore to filter unneeded files from release [\#6](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/pull/6) ([schurzi](https://github.com/schurzi))
+
 ## [0.1.0](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/tree/0.1.0) (2020-08-14)
 
 [Full Changelog](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/compare/0.0.1...0.1.0)
@@ -8,10 +20,6 @@
 
 - Use a loop to manage optional parameters [\#1](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/issues/1)
 - use loop for optional parameters [\#3](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/pull/3) ([schurzi](https://github.com/schurzi))
-
-**Closed issues:**
-
-- mixing of camel case and underscore variable names [\#2](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/issues/2)
 
 **Merged pull requests:**
 
