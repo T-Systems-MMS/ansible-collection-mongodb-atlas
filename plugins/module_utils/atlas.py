@@ -88,7 +88,9 @@ class AtlasAPIObject:
 
     def create(self):
         ret = self.call_url(
-            path=self.path, data=self.module.jsonify(self.data), method="POST",
+            path=self.path,
+            data=self.module.jsonify(self.data),
+            method="POST",
         )
         return ret
 

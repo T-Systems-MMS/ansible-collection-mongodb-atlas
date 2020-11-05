@@ -100,14 +100,17 @@ options:
       - The available options are specific to the cloud service provider.
     suboptions:
       providerName:
+        required: True
         type: str
         description:
           - Cloud service provider on which the servers are provisioned.
       regionName:
+        required: True
         type: str
         description:
           - Physical location of your MongoDB cluster.
       instanceSizeName:
+        required: True
         type: str
         description:
           - Atlas provides different cluster tiers, each with a default storage capacity and RAM size.
@@ -168,7 +171,10 @@ def main():
         ),
         replicationFactor=dict(default=3, type="int", choices=[3, 5, 7]),
         autoScaling=dict(
-            type="dict", options=dict(diskGBEnabled=dict(type="bool"),)
+            type="dict",
+            options=dict(
+                diskGBEnabled=dict(type="bool"),
+            ),
         ),
         providerSettings=dict(
             type="dict",
@@ -224,7 +230,9 @@ def main():
 
     changed, diff = atlas.update(module.params["state"])
     module.exit_json(
-        changed=changed, data=atlas.data, diff=diff,
+        changed=changed,
+        data=atlas.data,
+        diff=diff,
     )
 
 
