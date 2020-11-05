@@ -61,14 +61,14 @@ issues: 'https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/issue
 
 # ignore files not needed for release
 build_ignore:
- - codecov.yml
- - .github
- - .gitattributes
- - .gitignore
- - hacking
- - requirements.txt
- - test-requirements.txt
- - tests
- - .tox
- - tox.ini
- - .yamllint
+  - codecov.yml
+  - .github
+  - .gitattributes
+  - .gitignore
+  - hacking
+  - requirements.txt
+  - test-requirements.txt
+  - tests
+  - .tox
+  - tox.ini
+  - .yamllint
