@@ -135,7 +135,8 @@ def main():
             required=True,
             type="list",
             options=dict(
-                databaseName=dict(required=True), roleName=dict(required=True),
+                databaseName=dict(required=True),
+                roleName=dict(required=True),
             ),
         ),
     )
@@ -167,7 +168,9 @@ def main():
 
     changed, diff = atlas.update(module.params["state"])
     module.exit_json(
-        changed=changed, data=atlas.data, diff=diff,
+        changed=changed,
+        data=atlas.data,
+        diff=diff,
     )
 
 

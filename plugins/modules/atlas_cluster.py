@@ -113,7 +113,7 @@ options:
           - Atlas provides different cluster tiers, each with a default storage capacity and RAM size.
           - The cluster you select is used for all the data-bearing servers in your cluster tier.
     required: True
-    type: complex
+    type: dict
   diskSizeGB:
     description:
       - Capacity, in gigabytes, of the host's root volume. Increase this number to add capacity,
@@ -171,7 +171,7 @@ def main():
             type="dict",
             options=dict(
                 diskGBEnabled=dict(type="bool"),
-            )
+            ),
         ),
         providerSettings=dict(
             type="dict",
