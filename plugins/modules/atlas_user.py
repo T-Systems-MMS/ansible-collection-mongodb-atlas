@@ -83,7 +83,7 @@ options:
     description:
       - Array of this user's roles and the databases / collections on which the roles apply.
       - A role must include folliwing elements
-    contains:
+    elements:
       databaseName:
         type: str
         description:

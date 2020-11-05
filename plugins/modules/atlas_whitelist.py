@@ -127,7 +127,9 @@ def main():
 
     changed, diff = atlas.update(module.params["state"])
     module.exit_json(
-        changed=changed, data=atlas.data, diff=diff,
+        changed=changed,
+        data=atlas.data,
+        diff=diff,
     )
 
 

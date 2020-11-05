@@ -98,7 +98,7 @@ options:
     description:
       - Configuration for the provisioned servers on which MongoDB runs.
       - The available options are specific to the cloud service provider.
-    contains:
+    suboptions:
       providerName:
         type: str
         description:
