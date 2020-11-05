@@ -100,14 +100,17 @@ options:
       - The available options are specific to the cloud service provider.
     suboptions:
       providerName:
+        required: True
         type: str
         description:
           - Cloud service provider on which the servers are provisioned.
       regionName:
+        required: True
         type: str
         description:
           - Physical location of your MongoDB cluster.
       instanceSizeName:
+        required: True
         type: str
         description:
           - Atlas provides different cluster tiers, each with a default storage capacity and RAM size.

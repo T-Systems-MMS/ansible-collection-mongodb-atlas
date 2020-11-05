@@ -83,18 +83,21 @@ options:
     description:
       - Array of this user's roles and the databases / collections on which the roles apply.
       - A role must include folliwing elements
-    elements:
+    suboptions:
       databaseName:
+        required: true
         type: str
         description:
           - Database on which the user has the specified role.
           - A role on the admin database can include privileges that apply to the other databases.
       roleName:
+        required: true
         type: str
         description:
           - Name of the role. This value can either be a built-in role or a custom role.
     required: true
-    type: complex
+    type: list
+    elements: dict
 """
 
 EXAMPLES = """
@@ -134,6 +137,7 @@ def main():
         roles=dict(
             required=True,
             type="list",
+            elements="dict",
             options=dict(
                 databaseName=dict(required=True),
                 roleName=dict(required=True),
