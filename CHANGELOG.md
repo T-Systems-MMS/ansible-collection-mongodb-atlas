@@ -1,15 +1,17 @@
 # Changelog
 
-## [0.1.1](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/tree/0.1.1) (2020-11-05)
+## [0.1.1](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/tree/0.1.1) (2020-12-17)
 
 [Full Changelog](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/compare/0.1.0...0.1.1)
 
 **Closed issues:**
 
+- Remove unwanted files from release-tarball  [\#5](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/issues/5)
 - mixing of camel case and underscore variable names [\#2](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/issues/2)
 
 **Merged pull requests:**
 
+- run tests on a schedule [\#7](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/pull/7) ([rndmh3ro](https://github.com/rndmh3ro))
 - add build\_ignore to filter unneeded files from release [\#6](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/pull/6) ([schurzi](https://github.com/schurzi))
 
 ## [0.1.0](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/tree/0.1.0) (2020-08-14)
