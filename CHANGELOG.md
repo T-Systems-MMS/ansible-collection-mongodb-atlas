@@ -11,6 +11,7 @@
 
 **Merged pull requests:**
 
+- Create LICENSE [\#8](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/pull/8) ([rndmh3ro](https://github.com/rndmh3ro))
 - run tests on a schedule [\#7](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/pull/7) ([rndmh3ro](https://github.com/rndmh3ro))
 - add build\_ignore to filter unneeded files from release [\#6](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/pull/6) ([schurzi](https://github.com/schurzi))
 
