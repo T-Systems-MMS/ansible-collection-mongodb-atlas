@@ -69,6 +69,12 @@ options:
     choices: ["admin", "$external"]
     default: "admin"
     type: str
+  ldapAuthType:
+    description:
+      - Type of LDAP authorization for the user i.e. USER or GROUP
+    choices: ["GROUP", "USER"]
+    default: "GROUP"
+    type: str
   username:
     description:
       - Username for authenticating to MongoDB.
@@ -77,7 +83,7 @@ options:
   password:
     description:
       - User's password.
-    required: true
+    required: false
     type: str
   roles:
     description:
