@@ -131,7 +131,7 @@ def main():
         apiUsername=dict(required=True),
         apiPassword=dict(required=True, no_log=True),
         groupId=dict(required=True),
-        ldapAuthType=dict(default="GROUP", choices=["GROUP","USER"]),
+        ldapAuthType=dict(default="GROUP", choices=["GROUP", "USER"]),
         databaseName=dict(default="admin", choices=["admin", "$external"]),
         username=dict(required=True),
         password=dict(required=False, no_log=True),
