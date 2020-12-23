@@ -29,7 +29,7 @@ ANSIBLE_METADATA = {
 
 DOCUMENTATION = """
 ---
-module: atlas_user
+module: atlas_ldap_user
 short_description: Manage database users in Atlas
 description:
    - The atlas_users module lets you create, modify and delete the database users in your cluster.
@@ -103,12 +103,12 @@ options:
 
 EXAMPLES = """
     - name: test user
-      atlas_user:
+      atlas_ldap_user:
         apiUsername: "API_user"
         apiPassword: "API_passwort_or_token"
+        atlas_ldap_user: "USER DN or GROUP DN"
         groupId: "GROUP_ID"
         username: my_app_user
-        password: SuperSecret!
         roles:
           - databaseName: private_info
             roleName: read
