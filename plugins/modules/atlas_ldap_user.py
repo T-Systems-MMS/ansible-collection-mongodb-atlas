@@ -69,14 +69,15 @@ options:
     choices: ["admin", "$external"]
     default: "admin"
     type: str
+  ldapAuthType:
+    description:
+      - Type of LDAP authorization for the user i.e. USER or GROUP
+    choices: ["GROUP", "USER"]
+    default: "GROUP"
+    type: str
   username:
     description:
       - Username for authenticating to MongoDB.
-    required: true
-    type: str
-  password:
-    description:
-      - User's password.
     required: true
     type: str
   roles:
@@ -131,9 +132,9 @@ def main():
         apiUsername=dict(required=True),
         apiPassword=dict(required=True, no_log=True),
         groupId=dict(required=True),
+        ldapAuthType=dict(default="GROUP", choices=["GROUP", "USER"]),
         databaseName=dict(default="admin", choices=["admin", "$external"]),
         username=dict(required=True),
-        password=dict(required=True, no_log=True),
         roles=dict(
             required=True,
             type="list",
@@ -152,8 +153,8 @@ def main():
 
     data = {
         "databaseName": module.params["databaseName"],
+        "ldapAuthType": module.params["ldapAuthType"],
         "username": module.params["username"],
-        "password": module.params["password"],
         "roles": module.params["roles"],
     }
 
