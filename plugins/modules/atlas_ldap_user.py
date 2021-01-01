@@ -62,7 +62,7 @@ options:
     required: True
   databaseName:
     description:
-      - Database against which Atlas authenticates the user. For this we typically use the admin database since this is used for LDAP mapping but not limited to.
+      - Database against which Atlas authenticates the user.
     choices: ["admin", "$external"]
     default: "admin"
     type: str
