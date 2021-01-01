@@ -32,13 +32,10 @@ DOCUMENTATION = """
 module: atlas_ldap_user
 short_description: Manage database users in Atlas
 description:
-   - The atlas_users module lets you create, modify and delete the database users in your cluster.
-   - Each user has a set of roles that provide access to the project's databases.
-   - A user's roles apply to all the clusters in the project
-   - if two clusters have a products database and a user has a role granting read access on the products database,
-   - the user has that access on both clusters.
-   - L(API Documentation,https://docs.atlas.mongodb.com/reference/api/database-users/)
-author: "Martin Schurz (@schurzi)"
+   - The atlas_ldap_user module lets you create LDAP groups on the admin database by mapping LDAP groups to MongoDB roles on your Atlas databases.
+   - Each user or group has a set of roles that provide access to the project's databases.
+   - L(API Documentation,https://docs.atlas.mongodb.com/security-ldaps/)
+author: "Martin Schurz (@schurzi) / Derek Giri"
 options:
   apiUsername:
     description:
@@ -65,7 +62,7 @@ options:
     required: True
   databaseName:
     description:
-      - Database against which Atlas authenticates the user.
+      - Database against which Atlas authenticates the user. For this we typically use the admin database since this is used for LDAP mapping but not limited to. 
     choices: ["admin", "$external"]
     default: "admin"
     type: str
@@ -102,12 +99,13 @@ options:
 """
 
 EXAMPLES = """
-    - name: test user
+    - name: LDAP Group or Username 
       atlas_ldap_user:
         apiUsername: "API_user"
         apiPassword: "API_passwort_or_token"
         atlas_ldap_user: "USER DN or GROUP DN"
         groupId: "GROUP_ID"
+        databaseName: "admin"
         username: my_app_user
         roles:
           - databaseName: private_info
