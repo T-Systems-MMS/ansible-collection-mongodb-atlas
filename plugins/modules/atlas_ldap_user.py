@@ -96,6 +96,7 @@ options:
     required: true
     type: list
     elements: dict
+
 """
 EXAMPLES = """
     - name: LDAP Group or Username
@@ -112,6 +113,7 @@ EXAMPLES = """
           - databaseName: public_info
             roleName: readWrite
 """
+
 from ansible.module_utils.basic import AnsibleModule
 from ansible_collections.t_systems_mms.mongodb_atlas.plugins.module_utils.atlas import (
     AtlasAPIObject,
