@@ -62,7 +62,7 @@ options:
     required: True
   databaseName:
     description:
-      - Database against which Atlas authenticates the user. For this we typically use the admin database since this is used for LDAP mapping but not limited to. 
+      - Database against which Atlas authenticates the user. For this we typically use the admin database since this is used for LDAP mapping but not limited to.
     choices: ["admin", "$external"]
     default: "admin"
     type: str
@@ -98,7 +98,7 @@ options:
     elements: dict
 """
 EXAMPLES = """
-    - name: LDAP Group or Username 
+    - name: LDAP Group or Username
       atlas_ldap_user:
         apiUsername: "API_user"
         apiPassword: "API_passwort_or_token"
