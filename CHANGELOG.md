@@ -1,8 +1,12 @@
 # Changelog
 
-## [0.1.1](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/tree/0.1.1) (2020-12-17)
+## [0.2.0](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/tree/0.2.0) (2021-01-01)
 
-[Full Changelog](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/compare/0.1.0...0.1.1)
+[Full Changelog](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/compare/0.1.0...0.2.0)
+
+**Implemented enhancements:**
+
+- new module atlas\_ldap\_user for DB Users authenticated via LDAP [\#10](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/pull/10) ([derekgiri](https://github.com/derekgiri))
 
 **Closed issues:**
 
