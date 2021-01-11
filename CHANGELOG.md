@@ -6,6 +6,7 @@
 
 **Merged pull requests:**
 
+- update GitHub workflow [\#12](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/pull/12) ([schurzi](https://github.com/schurzi))
 - add doc\_fragment for global options [\#11](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/pull/11) ([schurzi](https://github.com/schurzi))
 
 ## [0.2.0](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/tree/0.2.0) (2021-01-01)
