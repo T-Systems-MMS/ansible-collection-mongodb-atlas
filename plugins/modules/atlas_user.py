@@ -32,37 +32,15 @@ DOCUMENTATION = """
 module: atlas_user
 short_description: Manage database users in Atlas
 description:
-   - The atlas_users module lets you create, modify and delete the database users in your cluster.
-   - Each user has a set of roles that provide access to the project's databases.
-   - A user's roles apply to all the clusters in the project
-   - if two clusters have a products database and a user has a role granting read access on the products database,
-   - the user has that access on both clusters.
-   - L(API Documentation,https://docs.atlas.mongodb.com/reference/api/database-users/)
+  - The atlas_users module lets you create, modify and delete the database users in your cluster.
+  - Each user has a set of roles that provide access to the project's databases.
+  - A user's roles apply to all the clusters in the project
+  - if two clusters have a products database and a user has a role granting read access on the products database,
+  - the user has that access on both clusters.
+  - L(API Documentation,https://docs.atlas.mongodb.com/reference/api/database-users/)
 author: "Martin Schurz (@schurzi)"
+extends_documentation_fragment: t_systems_mms.mongodb_atlas.atlas_global_options
 options:
-  apiUsername:
-    description:
-      - The username for use in authentication with the Atlas API.
-      - Can use API users and tokens (public key is username)
-    type: str
-    required: True
-  apiPassword:
-    description:
-      - The password for use in authentication with the Atlas API.
-      - Can use API users and tokens (private key is password)
-    type: str
-    required: True
-  state:
-    description:
-      - State of the ressource.
-    choices: [ "present", "absent" ]
-    default: present
-    type: str
-  groupId:
-    description:
-      - Unique identifier for the Atlas project.
-    type: str
-    required: True
   databaseName:
     description:
       - Database against which Atlas authenticates the user.

@@ -32,33 +32,11 @@ DOCUMENTATION = """
 module: atlas_whitelist
 short_description: Manage IP whitelists in Atlas
 description:
-   - The whitelist module manages a Atlas project's IP whitelist.
-   - L(API Documentation,https://docs.atlas.mongodb.com/reference/api/whitelist/)
+  - The whitelist module manages a Atlas project's IP whitelist.
+  - L(API Documentation,https://docs.atlas.mongodb.com/reference/api/whitelist/)
 author: "Martin Schurz (@schurzi)"
+extends_documentation_fragment: t_systems_mms.mongodb_atlas.atlas_global_options
 options:
-  apiUsername:
-    description:
-      - The username for use in authentication with the Atlas API.
-      - Can use API users and tokens (public key is username)
-    type: str
-    required: True
-  apiPassword:
-    description:
-      - The password for use in authentication with the Atlas API.
-      - Can use API users and tokens (private key is password)
-    type: str
-    required: True
-  state:
-    description:
-      - State of the ressource.
-    choices: [ "present", "absent" ]
-    default: present
-    type: str
-  groupId:
-    description:
-      - Unique identifier for the Atlas project.
-    type: str
-    required: True
   cidrBlock:
     description:
       - Whitelist entry in Classless Inter-Domain Routing (CIDR) notation.

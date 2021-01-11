@@ -32,34 +32,12 @@ DOCUMENTATION = """
 module: atlas_cluster
 short_description: Manage database clusters in Atlas
 description:
-   - The clusters module provides access to your cluster configurations.
-   - The module lets you create, edit and delete clusters.
-   - L(API Documentation,https://docs.atlas.mongodb.com/reference/api/clusters/)
+  - The clusters module provides access to your cluster configurations.
+  - The module lets you create, edit and delete clusters.
+  - L(API Documentation,https://docs.atlas.mongodb.com/reference/api/clusters/)
 author: "Martin Schurz (@schurzi)"
+extends_documentation_fragment: t_systems_mms.mongodb_atlas.atlas_global_options
 options:
-  apiUsername:
-    description:
-      - The username for use in authentication with the Atlas API.
-      - Can use API users and tokens (public key is username)
-    type: str
-    required: True
-  apiPassword:
-    description:
-      - The password for use in authentication with the Atlas API.
-      - Can use API users and tokens (private key is password)
-    type: str
-    required: True
-  state:
-    description:
-      - State of the ressource.
-    choices: [ "present", "absent" ]
-    default: present
-    type: str
-  groupId:
-    description:
-      - Unique identifier for the Atlas project.
-    type: str
-    required: True
   name:
     description:
       - Name of the cluster as it appears in Atlas. Once the cluster is created, its name cannot be changed.
