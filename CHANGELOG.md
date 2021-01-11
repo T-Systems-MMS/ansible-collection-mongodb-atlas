@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.1](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/tree/0.2.1) (2021-01-11)
+
+[Full Changelog](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/compare/0.2.0...0.2.1)
+
+**Merged pull requests:**
+
+- add doc\_fragment for global options [\#11](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/pull/11) ([schurzi](https://github.com/schurzi))
+
 ## [0.2.0](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/tree/0.2.0) (2021-01-01)
 
 [Full Changelog](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/compare/0.1.0...0.2.0)
