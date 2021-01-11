@@ -32,34 +32,12 @@ DOCUMENTATION = """
 module: atlas_ldap_user
 short_description: Manage database users in Atlas
 description:
-   - The atlas_ldap_user module lets you create LDAP groups on the admin database by mapping LDAP groups to MongoDB roles on your Atlas databases.
-   - Each user or group has a set of roles that provide access to the project's databases.
-   - L(API Documentation,https://docs.atlas.mongodb.com/security-ldaps/)
+  - The atlas_ldap_user module lets you create LDAP groups on the admin database by mapping LDAP groups to MongoDB roles on your Atlas databases.
+  - Each user or group has a set of roles that provide access to the project's databases.
+  - L(API Documentation,https://docs.atlas.mongodb.com/security-ldaps/)
 author: "Martin Schurz (@schurzi) / Derek Giri"
+extends_documentation_fragment: t_systems_mms.mongodb_atlas.atlas_global_options
 options:
-  apiUsername:
-    description:
-      - The username for use in authentication with the Atlas API.
-      - Can use API users and tokens (public key is username)
-    type: str
-    required: True
-  apiPassword:
-    description:
-      - The password for use in authentication with the Atlas API.
-      - Can use API users and tokens (private key is password)
-    type: str
-    required: True
-  state:
-    description:
-      - State of the ressource.
-    choices: [ "present", "absent" ]
-    default: present
-    type: str
-  groupId:
-    description:
-      - Unique identifier for the Atlas project.
-    type: str
-    required: True
   databaseName:
     description:
       - Database against which Atlas authenticates the user.
