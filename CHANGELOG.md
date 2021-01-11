@@ -6,6 +6,7 @@
 
 **Merged pull requests:**
 
+- fix galaxy-release action [\#13](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/pull/13) ([rndmh3ro](https://github.com/rndmh3ro))
 - update GitHub workflow [\#12](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/pull/12) ([schurzi](https://github.com/schurzi))
 - add doc\_fragment for global options [\#11](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/pull/11) ([schurzi](https://github.com/schurzi))
 
