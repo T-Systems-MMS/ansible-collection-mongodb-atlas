@@ -1,11 +1,12 @@
 # Changelog
 
-## [0.2.1](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/tree/0.2.1) (2021-01-26)
+## [0.2.1](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/tree/0.2.1) (2021-03-16)
 
 [Full Changelog](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/compare/0.2.0...0.2.1)
 
 **Merged pull requests:**
 
+- Improve Release Action [\#15](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/pull/15) ([schurzi](https://github.com/schurzi))
 - use version for github action, short sha is no longer supported [\#14](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/pull/14) ([schurzi](https://github.com/schurzi))
 - fix galaxy-release action [\#13](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/pull/13) ([rndmh3ro](https://github.com/rndmh3ro))
 - update GitHub workflow [\#12](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/pull/12) ([schurzi](https://github.com/schurzi))
