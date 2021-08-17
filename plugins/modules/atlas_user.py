@@ -85,13 +85,13 @@ options:
         required: true
         type: str
         description:
-          - Name of cluster or Atlas Data Lake.
+          - Name of the cluster or Atlas Data Lake that the database user can access.
       type:
         type: str
         choices: ["CLUSTER", "DATA_LAKE"]
         default: "CLUSTER"
         description:
-          - Either "CLUSTER" or "DATA_LAKE" depending on target.
+          - Type of resource that the database user can access.
     required: false
     type: list
     elements: dict
