@@ -85,7 +85,7 @@ options:
         required: true
         type: str
         description:
-          - Name of cluster and Atlas Data Lake.
+          - Name of cluster or Atlas Data Lake.
       type:
         type: str
         choices: ["CLUSTER", "DATA_LAKE"]
