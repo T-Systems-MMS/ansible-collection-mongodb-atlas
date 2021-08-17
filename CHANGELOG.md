@@ -1,8 +1,12 @@
 # Changelog
 
-## [0.2.1](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/tree/0.2.1) (2021-03-16)
+## [0.3.0](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/tree/0.3.0) (2021-08-17)
 
-[Full Changelog](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/compare/0.2.0...0.2.1)
+[Full Changelog](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/compare/0.2.0...0.3.0)
+
+**Implemented enhancements:**
+
+- add scope to user, so permissions can be restricted to clusters [\#16](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/pull/16) ([schurzi](https://github.com/schurzi))
 
 **Merged pull requests:**
 
