@@ -60,7 +60,7 @@ options:
   roles:
     description:
       - Array of this user's roles and the databases / collections on which the roles apply.
-      - A role must include folliwing elements
+      - A role must include following elements
     suboptions:
       databaseName:
         required: true
@@ -74,6 +74,25 @@ options:
         description:
           - Name of the role. This value can either be a built-in role or a custom role.
     required: true
+    type: list
+    elements: dict
+  scopes:
+    description:
+      - List of clusters and Atlas Data Lakes that this user can access.
+      - Atlas grants database users access to all resources by default.
+    suboptions:
+      name:
+        required: true
+        type: str
+        description:
+          - Name of the cluster or Atlas Data Lake that the database user can access.
+      type:
+        type: str
+        choices: ["CLUSTER", "DATA_LAKE"]
+        default: "CLUSTER"
+        description:
+          - Type of resource that the database user can access.
+    required: false
     type: list
     elements: dict
 """
@@ -121,6 +140,15 @@ def main():
                 roleName=dict(required=True),
             ),
         ),
+        scopes=dict(
+            required=False,
+            type="list",
+            elements="dict",
+            options=dict(
+                name=dict(required=True),
+                type=dict(default="CLUSTER", choices=["CLUSTER", "DATA_LAKE"]),
+            ),
+        ),
     )
 
     # Define the main module
@@ -133,6 +161,7 @@ def main():
         "username": module.params["username"],
         "password": module.params["password"],
         "roles": module.params["roles"],
+        "scopes": module.params["scopes"],
     }
 
     try:
