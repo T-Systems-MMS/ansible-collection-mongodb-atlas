@@ -93,6 +93,7 @@ options:
         description:
           - Type of resource that the database user can access.
     required: false
+    default: []
     type: list
     elements: dict
 """
@@ -148,6 +149,7 @@ def main():
                 name=dict(required=True),
                 type=dict(default="CLUSTER", choices=["CLUSTER", "DATA_LAKE"]),
             ),
+            default=[],
         ),
     )
 
