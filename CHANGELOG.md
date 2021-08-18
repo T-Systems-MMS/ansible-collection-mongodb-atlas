@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.3.1](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/tree/0.3.1) (2021-08-18)
+
+[Full Changelog](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/compare/0.3.0...0.3.1)
+
+**Implemented enhancements:**
+
+- atlas\_user - set correct scope if empty parameter  [\#17](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/pull/17) ([schurzi](https://github.com/schurzi))
+
 ## [0.3.0](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/tree/0.3.0) (2021-08-17)
 
 [Full Changelog](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/compare/0.2.0...0.3.0)
@@ -33,7 +41,6 @@
 
 - Create runtime.yml [\#9](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/pull/9) ([rndmh3ro](https://github.com/rndmh3ro))
 - Create LICENSE [\#8](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/pull/8) ([rndmh3ro](https://github.com/rndmh3ro))
-- run tests on a schedule [\#7](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/pull/7) ([rndmh3ro](https://github.com/rndmh3ro))
 - add build\_ignore to filter unneeded files from release [\#6](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/pull/6) ([schurzi](https://github.com/schurzi))
 
 ## [0.1.0](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/tree/0.1.0) (2020-08-14)
@@ -47,6 +54,7 @@
 
 **Merged pull requests:**
 
+- run tests on a schedule [\#7](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/pull/7) ([rndmh3ro](https://github.com/rndmh3ro))
 - change all variables to camel case [\#4](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/pull/4) ([schurzi](https://github.com/schurzi))
 
 ## [0.0.1](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/tree/0.0.1) (2020-08-14)
