@@ -6,6 +6,11 @@ on:
     branches:
       - master
 
+env:
+  NAMESPACE: t_systems_mms
+  COLLECTION_NAME: mongodb_atlas
+  ANSIBLE_COLLECTIONS_PATHS: ./
+
 jobs:
   update_docs:
     runs-on: ubuntu-latest
@@ -13,6 +18,15 @@ jobs:
     steps:
       - uses: actions/checkout@v2.3.4
         with:
+          fetch-depth: 0
+
+      # ansible-doc-extractor requires the collection to be in a directory in 
+      # the form ./ansible_collections/${{env.NAMESPACE}}/${{env.COLLECTION_NAME}}/
+
+      - name: Check out code to ansible collection location
+        uses: actions/checkout@v2.3.4
+        with:
+          path: ansible_collections/${{env.NAMESPACE}}/${{env.COLLECTION_NAME}}
           fetch-depth: 0
 
       - name: Set up Python
