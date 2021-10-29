@@ -3,6 +3,11 @@ name: New release
 
 on:
   push:
+
+env:
+  NAMESPACE: t_systems_mms
+  COLLECTION_NAME: mongodb_atlas
+
 jobs:
   update_docs:
     runs-on: ubuntu-latest
