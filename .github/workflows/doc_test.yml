@@ -30,13 +30,12 @@ jobs:
       - name: create documentation
         run: ansible-doc-extractor docs/ plugins/modules/*
         env:
-          COLLECTIONS_PATHS: ./
+          ANSIBLE_COLLECTIONS_PATHS: ./
 
       - name: commit documentation
         uses: github-actions-x/commit@v2.6
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          push-branch: 'master'
           commit-message: 'update documentation'
           force-add: 'true'
           files: docs/
