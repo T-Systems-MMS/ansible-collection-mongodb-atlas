@@ -25,6 +25,15 @@ collections:
 - t_systems_mms.mongodb_atlas
 ```
 
+Documentation
+-------------
+
+Our modules include documentation.
+
+You can find the complete documentation for the modules in the [docs-folder](docs).
+
+To display it on the command-line you can use the `ansible-doc` command.
+
 License
 -------
 
