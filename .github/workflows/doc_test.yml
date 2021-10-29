@@ -18,7 +18,7 @@ jobs:
       - name: Check out code to deafult ansible collection location
         uses: actions/checkout@v2.3.4
         with:
-          path: /home/runner/.ansible/ansible_collections/${{env.NAMESPACE}}/${{env.COLLECTION_NAME}}
+          path: ansible_collections/${{env.NAMESPACE}}/${{env.COLLECTION_NAME}}
           fetch-depth: 0
 
       - name: Set up Python
@@ -29,6 +29,8 @@ jobs:
 
       - name: create documentation
         run: ansible-doc-extractor docs/ plugins/modules/*
+        env:
+          COLLECTIONS_PATHS: ./
 
       - name: commit documentation
         uses: github-actions-x/commit@v2.6
