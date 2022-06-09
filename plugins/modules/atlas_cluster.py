@@ -48,7 +48,7 @@ options:
       - Version of the cluster to deploy.
       - Atlas always deploys the cluster with the latest stable release of the specified version.
       - You can upgrade to a newer version of MongoDB when you modify a cluster.
-    choices: [ "3.6", "4.0", "4.2", "4.4" ]
+    choices: [ "3.6", "4.0", "4.2", "4.4", "5.0", "6.0" ]
     type: str
   clusterType:
     description:
@@ -143,7 +143,7 @@ def main():
         apiPassword=dict(required=True, no_log=True),
         groupId=dict(required=True),
         name=dict(required=True),
-        mongoDBMajorVersion=dict(choices=["3.6", "4.0", "4.2", "4.4"]),
+        mongoDBMajorVersion=dict(choices=["3.6", "4.0", "4.2", "4.4", "5.0", "6.0"]),
         clusterType=dict(
             default="REPLICASET", choices=["REPLICASET", "SHARDED"]
         ),
