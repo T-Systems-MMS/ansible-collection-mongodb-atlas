@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     name: create documentation inside docs-folder
     steps:
-      - uses: actions/checkout@v2.3.4
+      - uses: actions/checkout@v2.4.2
         with:
           fetch-depth: 0
 
@@ -24,7 +24,7 @@ jobs:
       # the form ./ansible_collections/${{env.NAMESPACE}}/${{env.COLLECTION_NAME}}/
 
       - name: Check out code to ansible collection location
-        uses: actions/checkout@v2.3.4
+        uses: actions/checkout@v2.4.2
         with:
           path: ansible_collections/${{env.NAMESPACE}}/${{env.COLLECTION_NAME}}
           fetch-depth: 0
@@ -54,7 +54,7 @@ jobs:
     name: create release draft
     needs: update_docs  # the documentation should be updated before creating a new release
     steps:
-      - uses: actions/checkout@v2.3.4
+      - uses: actions/checkout@v2.4.2
         with:
           fetch-depth: 0
 
@@ -90,7 +90,7 @@ jobs:
 
       # do a second checkout to prevent race situation
       # changelog gets updated but action works on old commit id
-      - uses: actions/checkout@v2.3.4
+      - uses: actions/checkout@v2.4.2
         with:
           ref: master
 
