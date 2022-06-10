@@ -1,11 +1,19 @@
 # Changelog
 
-## [0.3.2](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/tree/0.3.2) (2021-10-29)
+## [0.3.2](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/tree/0.3.2) (2022-06-10)
 
 [Full Changelog](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/compare/0.3.1...0.3.2)
 
+**Implemented enhancements:**
+
+- Allow new mongodb atlas versions [\#21](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/pull/21) ([hack3d](https://github.com/hack3d))
+
 **Merged pull requests:**
 
+- Update actions/setup-python action to v4 [\#26](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/pull/26) ([renovate[bot]](https://github.com/apps/renovate))
+- Update github-actions-x/commit action to v2.9 [\#25](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/pull/25) ([renovate[bot]](https://github.com/apps/renovate))
+- Update charmixer/auto-changelog-action action to v1.4 [\#23](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/pull/23) ([renovate[bot]](https://github.com/apps/renovate))
+- Configure Renovate [\#20](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/pull/20) ([renovate[bot]](https://github.com/apps/renovate))
 - fix documentation workflow [\#19](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/pull/19) ([schurzi](https://github.com/schurzi))
 - add workflow job to autgenerate documentation [\#18](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/pull/18) ([schurzi](https://github.com/schurzi))
 
@@ -32,7 +40,6 @@
 - fix galaxy-release action [\#13](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/pull/13) ([rndmh3ro](https://github.com/rndmh3ro))
 - update GitHub workflow [\#12](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/pull/12) ([schurzi](https://github.com/schurzi))
 - add doc\_fragment for global options [\#11](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/pull/11) ([schurzi](https://github.com/schurzi))
-- Create LICENSE [\#8](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/pull/8) ([rndmh3ro](https://github.com/rndmh3ro))
 
 ## [0.2.0](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/tree/0.2.0) (2021-01-01)
 
@@ -50,6 +57,7 @@
 **Merged pull requests:**
 
 - Create runtime.yml [\#9](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/pull/9) ([rndmh3ro](https://github.com/rndmh3ro))
+- Create LICENSE [\#8](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/pull/8) ([rndmh3ro](https://github.com/rndmh3ro))
 - run tests on a schedule [\#7](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/pull/7) ([rndmh3ro](https://github.com/rndmh3ro))
 - add build\_ignore to filter unneeded files from release [\#6](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/pull/6) ([schurzi](https://github.com/schurzi))
 
