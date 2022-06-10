@@ -144,7 +144,8 @@ def main():
         groupId=dict(required=True),
         name=dict(required=True),
         mongoDBMajorVersion=dict(
-            choices=["3.6", "4.0", "4.2", "4.4", "5.0", "6.0"]),
+            choices=["3.6", "4.0", "4.2", "4.4", "5.0", "6.0"]
+        ),
         clusterType=dict(
             default="REPLICASET", choices=["REPLICASET", "SHARDED"]
         ),
