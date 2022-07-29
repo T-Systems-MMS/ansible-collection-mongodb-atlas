@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.3.3](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/tree/0.3.3) (2022-07-29)
+
+[Full Changelog](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/compare/0.3.2...0.3.3)
+
+**Fixed bugs:**
+
+- API: handle 404 error [\#27](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/pull/27) ([Raznak](https://github.com/Raznak))
+
 ## [0.3.2](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/tree/0.3.2) (2022-06-10)
 
 [Full Changelog](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/compare/0.3.1...0.3.2)
