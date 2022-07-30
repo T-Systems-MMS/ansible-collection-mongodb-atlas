@@ -1,6 +1,6 @@
 namespace: t_systems_mms
 name: mongodb_atlas
-version: 0.3.2
+version: 0.3.3
 readme: README.md
 authors:
   - Martin Schurz <Martin.Schurz@t-systems.com>
