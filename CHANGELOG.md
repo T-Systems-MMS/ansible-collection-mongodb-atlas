@@ -1,11 +1,12 @@
 # Changelog
 
-## [0.3.4](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/tree/0.3.4) (2022-11-04)
+## [0.3.4](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/tree/0.3.4) (2023-06-15)
 
 [Full Changelog](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/compare/0.3.3...0.3.4)
 
 **Merged pull requests:**
 
+- run CI-tests only once peer week [\#30](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/pull/30) ([rndmh3ro](https://github.com/rndmh3ro))
 - use reusable workflow [\#29](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/pull/29) ([rndmh3ro](https://github.com/rndmh3ro))
 
 ## [0.3.3](https://github.com/T-Systems-MMS/ansible-collection-mongodb-atlas/tree/0.3.3) (2022-07-29)
